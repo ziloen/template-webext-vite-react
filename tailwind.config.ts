@@ -22,6 +22,13 @@ export default {
 
     extend: {}
   },
+  experimental: {
+    // 清除多余未使用的全局 CSS 变量，例如 --tw-translate-x: 0;
+    optimizeUniversalDefaults: true,
+    // matchVariant: true,
+  },
+  // https://tailwindcss.com/docs/theme#configuration-reference
+  corePlugins: { },
   plugins: [
     function ({ addUtilities }: PluginAPI) {
       addUtilities({

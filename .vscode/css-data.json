@@ -1,0 +1,59 @@
+{
+  "//": "https://github.com/microsoft/vscode-css-languageservice/blob/main/docs/customData.md",
+  "$schema": "https://raw.githubusercontent.com/microsoft/vscode-css-languageservice/master/docs/customData.schema.json",
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@apply",
+      "description": "@apply tailwindcss classes",
+      "references": [
+        {
+          "name": "tailwind doc",
+          "url": "https://tailwindcss.com/docs/functions-and-directives#apply"
+        }
+      ]
+    },
+    {
+      "name": "@container",
+      "description": "Container query",
+      "references": [
+        {
+          "name": "MDN",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@container"
+        }
+      ]
+    },
+    {
+      "name": "@tailwind",
+      "description": "tailwind directives",
+      "references": [
+        {
+          "name": "tailwind doc",
+          "url": "https://tailwindcss.com/docs/functions-and-directives#tailwind"
+        }
+      ]
+    },
+    {
+      "name": "@unocss",
+      "description": "unocss directives",
+      "references": [
+        {
+          "name": "unocss doc",
+          "url": "https://unocss.dev/integrations/postcss#unocss"
+        }
+      ]
+    }
+  ],
+  "pseudoClasses": [
+    {
+      "name": ":global",
+      "description": "CSS Modules Exceptions",
+      "references": [
+        {
+          "name": "CSS Modules",
+          "url": "https://github.com/css-modules/css-modules?tab=readme-ov-file#exceptions"
+        }
+      ]
+    }
+  ]
+}

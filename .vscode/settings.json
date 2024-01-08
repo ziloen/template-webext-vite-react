@@ -5,10 +5,13 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
+  "css.customData": [
+    ".vscode/css-data.json"
+  ],
   "editor.codeActionsOnSave": [
     "source.sortImports",
     "source.fixAll.eslint",
   ],
   "eslint.experimental.useFlatConfig": true,
-  "prettier.enable": false,
+  "prettier.enable": false
 }
