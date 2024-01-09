@@ -13,7 +13,7 @@
     "@types/react-dom": "^18.2.18",
     "@types/webextension-polyfill": "^0.10.7",
     "@vitejs/plugin-react": "^4.2.1",
-    "@ziloen/eslint-config": "^0.1.14",
+    "@ziloen/eslint-config": "^0.1.15",
     "cross-env": "^7.0.3",
     "eslint": "^8.56.0",
     "eslint-plugin-jsx-expressions": "^1.3.2",
