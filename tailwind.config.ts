@@ -1,8 +1,6 @@
 import type { Config } from 'tailwindcss'
 import type { PluginAPI } from 'tailwindcss/types/config'
 
-
-// eslint-disable-next-line no-restricted-exports
 export default {
   content: ['./src/**/*.{ts,tsx,html}'],
   presets: [],
@@ -23,7 +21,7 @@ export default {
     extend: {}
   },
   experimental: {
-    // 清除多余未使用的全局 CSS 变量，例如 --tw-translate-x: 0;
+    // Remove unused global css variables, e.g. --tw-translate-x: 0;
     optimizeUniversalDefaults: true,
     // matchVariant: true,
   },

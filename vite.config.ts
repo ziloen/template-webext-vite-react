@@ -8,13 +8,12 @@ const twConfig = resolveConfig(tailwindConfig)
 
 export type TW_THEME = typeof twConfig.theme
 
-// eslint-disable-next-line no-restricted-exports
 export default defineConfig(({ command, mode }) => {
   return {
     plugins: [
       AutoImport({
         dts: 'src/types/auto-imports.d.ts',
-      }) as Plugin
-    ]
+      }) as Plugin,
+    ],
   }
 })
