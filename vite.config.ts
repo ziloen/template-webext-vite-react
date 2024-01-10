@@ -16,7 +16,12 @@ const twConfig = resolveConfig(tailwindConfig)
 export type TW_THEME = typeof twConfig.theme
 
 export default defineConfig(({ command, mode }) => {
+  const isBuild = command === 'build'
+
   return {
+    experimental: {
+      skipSsrTransform: true,
+    },
     server: {
       port: 3303,
       hmr: {
@@ -79,5 +84,13 @@ export default defineConfig(({ command, mode }) => {
     ],
 
     publicDir: 'public',
+
+    build: {
+      minify: 'esbuild',
+    },
+
+    esbuild: {
+      drop: isBuild ? ['console', 'debugger'] : [],
+    },
   }
 })
