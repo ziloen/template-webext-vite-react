@@ -1,5 +1,7 @@
 import { crx } from '@crxjs/vite-plugin'
 import react from '@vitejs/plugin-react'
+import { resolve as r } from 'node:path'
+import { cwd } from 'node:process'
 import PostcssPresetEnv from 'postcss-preset-env'
 import tailwind from 'tailwindcss'
 import resolveConfig from 'tailwindcss/resolveConfig'
@@ -20,6 +22,13 @@ export default defineConfig(({ command, mode }) => {
       hmr: {
         // https://github.com/crxjs/chrome-extension-tools/issues/648
         port: 3303,
+      },
+    },
+
+    resolve: {
+      alias: {
+        '~': r('src'),
+        '~cwd': cwd(),
       },
     },
 
@@ -53,9 +62,10 @@ export default defineConfig(({ command, mode }) => {
               'useState',
             ],
             'react-dom': ['createPortal'],
-            'framer-motion': ['motion', 'AnimatePresence'],
+            'framer-motion': ['AnimatePresence', 'motion'],
             clsx: ['clsx'],
             'clsx/lite': [['clsx', 'clsxLite']],
+            'webextension-polyfill': [['*', 'browser']],
           },
         ],
       }) as Plugin,

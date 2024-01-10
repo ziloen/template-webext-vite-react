@@ -8,6 +8,7 @@ declare global {
   const AnimatePresence: typeof import('framer-motion')['AnimatePresence']
   const Fragment: typeof import('react')['Fragment']
   const Suspense: typeof import('react')['Suspense']
+  const browser: typeof import('webextension-polyfill')
   const clsx: typeof import('clsx')['clsx']
   const clsxLite: typeof import('clsx/lite')['clsx']
   const createPortal: typeof import('react-dom')['createPortal']
