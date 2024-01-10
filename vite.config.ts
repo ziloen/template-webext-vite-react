@@ -87,6 +87,15 @@ export default defineConfig(({ command, mode }) => {
 
     build: {
       minify: 'esbuild',
+
+      reportCompressedSize: false,
+
+      rollupOptions: {
+        input: {
+          'devtools-panel': 'src/pages/devtools-panel/index.html',
+          devtools: 'src/devtools/index.html',
+        },
+      },
     },
 
     esbuild: {

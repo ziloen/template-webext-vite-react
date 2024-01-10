@@ -14,7 +14,7 @@ export function manifest() {
     action: {
       default_popup: 'src/pages/popup/index.html',
     },
-    devtools_page: 'src/devtools/index.html',
+    // devtools_page: 'src/devtools/index.html',
     web_accessible_resources: [],
   } satisfies Omit<Manifest.WebExtensionManifest, MV2Keys>
 
