@@ -14,6 +14,11 @@ export function manifest() {
     action: {
       default_popup: 'src/pages/popup/index.html',
     },
+    background: {
+      service_worker: 'src/background/main.ts',
+      type: 'module',
+      scripts: ['src/background/main.ts'],
+    },
     // devtools_page: 'src/devtools/index.html',
     web_accessible_resources: [],
   } satisfies Omit<Manifest.WebExtensionManifest, MV2Keys>
