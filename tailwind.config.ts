@@ -18,7 +18,16 @@ export default {
       none: '1',
     },
 
-    extend: {}
+    zIndex: {
+      auto: 'auto',
+      0: '0',
+      1: '1',
+      2: '2',
+      3: '3',
+      max: '2147483647',
+    },
+
+    extend: {},
   },
   experimental: {
     // Remove unused global css variables, e.g. --tw-translate-x: 0;
@@ -26,7 +35,7 @@ export default {
     // matchVariant: true,
   },
   // https://tailwindcss.com/docs/theme#configuration-reference
-  corePlugins: { },
+  corePlugins: {},
   plugins: [
     function ({ addUtilities }: PluginAPI) {
       addUtilities({
@@ -63,4 +72,3 @@ export default {
     },
   ],
 } satisfies Config
-
