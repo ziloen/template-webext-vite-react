@@ -35,9 +35,10 @@ export default {
     // matchVariant: true,
   },
   // https://tailwindcss.com/docs/theme#configuration-reference
+  // https://github.com/tailwindlabs/tailwindcss/blob/master/src/corePlugins.js
   corePlugins: {},
   plugins: [
-    function ({ addUtilities }: PluginAPI) {
+    function ({ addUtilities, matchUtilities }: PluginAPI) {
       addUtilities({
         // Flex utilities
         '.flex-center': {
@@ -69,6 +70,43 @@ export default {
           'scrollbar-width': 'thin',
         },
       })
+
+      matchUtilities(
+        {
+          'webkit-scrollbar': value => ({
+            '&::-webkit-scrollbar-button': {
+              display: 'none',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              borderRadius: '9999px',
+            },
+            '&::-webkit-scrollbar': {
+              width: value,
+              height: value,
+              borderRadius: '9999px',
+            },
+          }),
+        },
+        {
+          type: 'length',
+          values: {
+            DEFAULT: '4px',
+            1: '4px',
+            2: '8px',
+          },
+        }
+      )
+
+      matchUtilities(
+        {
+          'webkit-scrollbar': value => ({
+            '&::-webkit-scrollbar-thumb': {
+              backgroundColor: value,
+            },
+          }),
+        },
+        { type: ['color', 'any'] }
+      )
     },
   ],
 } satisfies Config
