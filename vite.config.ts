@@ -86,9 +86,11 @@ export default defineConfig(({ command, mode }) => {
     publicDir: 'public',
 
     build: {
-      minify: 'esbuild',
+      minify: isBuild ? 'esbuild' : false,
 
-      reportCompressedSize: false,
+      reportCompressedSize: true,
+      // disable inlining assets
+      assetsInlineLimit: 0,
 
       rollupOptions: {
         input: {

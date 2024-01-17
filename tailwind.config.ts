@@ -107,6 +107,58 @@ export default {
         },
         { type: ['color', 'any'] }
       )
+
+      // add margin to scrollbar
+      // Notice: this will cause some side effects
+      matchUtilities(
+        {
+          'webkit-scrollbar-m': value => ({
+            '&::-webkit-scrollbar-track': {
+              margin: value,
+            },
+          }),
+          'webkit-scrollbar-mx': value => ({
+            '&::-webkit-scrollbar-track': {
+              'margin-left': value,
+              'margin-right': value,
+            },
+          }),
+          'webkit-scrollbar-my': value => ({
+            '&::-webkit-scrollbar-track': {
+              'margin-top': value,
+              'margin-bottom': value,
+            },
+          }),
+          'webkit-scrollbar-mt': value => ({
+            '&::-webkit-scrollbar-track': {
+              'margin-top': value,
+            },
+          }),
+          'webkit-scrollbar-mb': value => ({
+            '&::-webkit-scrollbar-track': {
+              'margin-bottom': value,
+            },
+          }),
+          'webkit-scrollbar-ml': value => ({
+            '&::-webkit-scrollbar-track': {
+              'margin-left': value,
+            },
+          }),
+          'webkit-scrollbar-mr': value => ({
+            '&::-webkit-scrollbar-track': {
+              'margin-right': value,
+            },
+          }),
+        },
+        {
+          type: 'length',
+          values: {
+            1: '4px',
+            2: '8px',
+            3: '12px',
+          },
+        }
+      )
     },
   ],
 } satisfies Config

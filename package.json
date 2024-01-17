@@ -9,10 +9,10 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.5.1",
+    "@biomejs/biome": "^1.5.2",
     "@crxjs/vite-plugin": "^2.0.0-beta.21",
     "@types/fs-extra": "^11.0.4",
-    "@types/react": "^18.2.47",
+    "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "@types/webextension-polyfill": "^0.10.7",
     "@vitejs/plugin-react": "^4.2.1",
