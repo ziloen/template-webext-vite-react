@@ -19,6 +19,10 @@ export function manifest() {
       type: 'module',
       scripts: ['src/background/main.ts'],
     },
+    options_ui: {
+      page: 'src/pages/options/index.html',
+      open_in_tab: true,
+    },
     // devtools_page: 'src/devtools/index.html',
     web_accessible_resources: [],
   } satisfies Omit<Manifest.WebExtensionManifest, MV2Keys>
