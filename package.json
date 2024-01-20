@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.5.2",
-    "@crxjs/vite-plugin": "^2.0.0-beta.21",
+    "@crxjs/vite-plugin": "^2.0.0-beta.23",
     "@fontsource-variable/fira-code": "^5.0.16",
     "@types/fs-extra": "^11.0.4",
     "@types/react": "^18.2.48",
@@ -28,7 +28,7 @@
     "type-fest": "^4.9.0",
     "typescript": "^5.3.3",
     "unplugin-auto-import": "^0.17.3",
-    "vite": "^5.0.11",
+    "vite": "^5.0.12",
     "web-ext": "^7.10.0"
   },
   "dependencies": {
@@ -42,7 +42,7 @@
     "react-i18next": "^14.0.0",
     "rxjs": "^8.0.0-alpha.13",
     "serialize-error": "^11.0.3",
-    "typed-webext": "^0.4.0",
+    "typed-webext": "^0.4.1",
     "webextension-polyfill": "^0.10.0"
   }
 }

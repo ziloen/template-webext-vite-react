@@ -23,6 +23,12 @@ export function manifest() {
       page: 'src/pages/options/index.html',
       open_in_tab: true,
     },
+    content_scripts: [
+      {
+        matches: ['<all_urls>'],
+        js: ['src/content-scripts/main.ts'],
+      },
+    ],
     // devtools_page: 'src/devtools/index.html',
     web_accessible_resources: [],
   } satisfies Omit<Manifest.WebExtensionManifest, MV2Keys>
