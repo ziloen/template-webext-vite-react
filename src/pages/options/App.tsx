@@ -1,7 +1,3 @@
-
-
 export function App() {
-  return (
-    <div>Options Page</div>
-  )
+  return <div>Options Page</div>
 }

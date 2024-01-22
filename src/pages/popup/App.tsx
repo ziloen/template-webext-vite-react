@@ -7,15 +7,24 @@ export function App() {
       <div className="">Popup Page</div>
 
       <div
-        className="flex-align gap-[4px] "
-        onClick={() => browser.runtime.openOptionsPage()}
+        className="flex-align gap-[4px] w-auto"
+        onClick={async () => {
+          await browser.runtime.openOptionsPage()
+          window.close()
+        }}
       >
-        <SvgIcon name="CarbonLink" />
+        <SvgIcon name="CarbonLaunch" />
         <span>Open Options Page</span>
       </div>
 
-      <div className="flex-align gap-[4px]" onClick={openSidePanel}>
-        <SvgIcon name="CarbonLink" />
+      <div
+        className="flex-align gap-[4px]"
+        onClick={async () => {
+          await openSidePanel()
+          window.close()
+        }}
+      >
+        <SvgIcon name="CarbonLaunch" />
         <span>Open Sidepanel</span>
       </div>
     </div>
