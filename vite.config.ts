@@ -6,6 +6,7 @@ import PostcssPresetEnv from 'postcss-preset-env'
 import tailwind from 'tailwindcss'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import AutoImport from 'unplugin-auto-import/vite'
+import SvgComponent from 'unplugin-svg-component/vite'
 import type { Plugin } from 'vite'
 import { defineConfig } from 'vite'
 import { manifest } from './src/manifest'
@@ -80,6 +81,16 @@ export default defineConfig(({ command, mode }) => {
       crx({
         manifest,
         browser: 'chrome',
+      }),
+
+      // https://github.com/Jevon617/unplugin-svg-component
+      SvgComponent({
+        iconDir: r('src/assets/svg-icons'),
+        dts: true,
+        dtsDir: r('src/types'),
+        componentStyle: 'width: 1em; height: 1em;',
+        projectType: 'react',
+        preserveColor: /./,
       }),
     ],
 
