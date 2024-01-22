@@ -1,3 +1,3 @@
 export function App() {
-  return <div>1233</div>
+  return <div>Sidepanle / Sidebar Page</div>
 }

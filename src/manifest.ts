@@ -1,15 +1,24 @@
 import type { Manifest } from 'webextension-polyfill'
 
-type Permissions = Manifest.PermissionNoPrompt | Manifest.OptionalPermission
+type Permissions =
+  | Manifest.PermissionNoPrompt
+  | Manifest.OptionalPermission
+  | 'sidePanel'
 type OptionalPermissions = Manifest.OptionalPermission
 type MV2Keys = 'browser_action' | 'user_scripts' | 'page_action'
+
+type ChromeManifestExtra = {
+  side_panel?: {
+    default_path: string
+  }
+}
 
 export function manifest() {
   const manifest = {
     manifest_version: 3,
     name: 'My Extension',
     version: '0.0.1',
-    permissions: [] as Permissions[],
+    permissions: ['sidePanel'] as Permissions[],
     optional_permissions: [] as OptionalPermissions[],
     action: {
       default_popup: 'src/pages/popup/index.html',
@@ -23,15 +32,19 @@ export function manifest() {
       page: 'src/pages/options/index.html',
       open_in_tab: true,
     },
+    side_panel: {
+      default_path: 'src/pages/sidepanel/index.html',
+    },
     content_scripts: [
       {
         matches: ['<all_urls>'],
         js: ['src/content-scripts/main.ts'],
       },
     ],
+
     // devtools_page: 'src/devtools/index.html',
     web_accessible_resources: [],
-  } satisfies Omit<Manifest.WebExtensionManifest, MV2Keys>
+  } satisfies Omit<Manifest.WebExtensionManifest, MV2Keys> & ChromeManifestExtra
 
   return manifest
 }

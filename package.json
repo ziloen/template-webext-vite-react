@@ -13,6 +13,7 @@
     "@crxjs/vite-plugin": "^2.0.0-beta.23",
     "@fontsource-variable/fira-code": "^5.0.16",
     "@fontsource-variable/open-sans": "^5.0.23",
+    "@types/chrome": "0.0.258",
     "@types/fs-extra": "^11.0.4",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
