@@ -1,3 +1,11 @@
 export function App() {
-  return <div>1233</div>
+  return (
+    <div className="p-[12px] text-center whitespace-nowrap">
+      <div className="">Popup Page</div>
+
+      <button className="bg-black" onClick={() => browser.runtime.openOptionsPage()}>
+        Open Options Page
+      </button>
+    </div>
+  )
 }

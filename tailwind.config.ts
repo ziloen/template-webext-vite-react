@@ -27,7 +27,9 @@ export default {
       max: '2147483647',
     },
 
-    extend: {},
+    extend: {
+      
+    },
   },
   experimental: {
     // Remove unused global css variables, e.g. --tw-translate-x: 0;
