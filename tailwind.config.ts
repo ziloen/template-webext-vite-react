@@ -11,6 +11,7 @@ export default {
       transparent: 'transparent',
       black: '#000',
       white: '#fff',
+
     },
 
     lineHeight: {
