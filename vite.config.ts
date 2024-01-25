@@ -44,7 +44,16 @@ export default defineConfig(({ command, mode }) => {
 
     css: {
       postcss: {
-        plugins: [PostcssPresetEnv(), tailwind(twConfig)],
+        plugins: [
+          PostcssPresetEnv({
+            stage: false,
+            features: {
+              'nesting-rules': true,
+              'media-query-ranges': true,
+            },
+          }),
+          tailwind(twConfig),
+        ],
       },
     },
 
@@ -88,7 +97,7 @@ export default defineConfig(({ command, mode }) => {
         iconDir: r('src/assets/svg-icons'),
         dts: true,
         // FIXME: when set to `src/types`, it will ifinity reload page when multi page open, maybe conflict with @crxjs/vite-plugin
-        dtsDir: r(''),
+        dtsDir: isBuild ? r('src/types') : r(''),
         componentStyle: 'width: 1em; height: 1em;',
         projectType: 'react',
         preserveColor: /./,
