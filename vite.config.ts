@@ -87,7 +87,8 @@ export default defineConfig(({ command, mode }) => {
       SvgComponent({
         iconDir: r('src/assets/svg-icons'),
         dts: true,
-        dtsDir: r('src/types'),
+        // FIXME: when set to `src/types`, it will ifinity reload page when multi page open, maybe conflict with @crxjs/vite-plugin
+        dtsDir: r(''),
         componentStyle: 'width: 1em; height: 1em;',
         projectType: 'react',
         preserveColor: /./,
