@@ -38,12 +38,18 @@ export function manifest() {
     content_scripts: [
       {
         matches: ['<all_urls>'],
-        js: ['src/content-scripts/main.ts'],
+        js: ['src/content-scripts/main.tsx'],
+        run_at: 'document_end',
       },
     ],
 
     // devtools_page: 'src/devtools/index.html',
-    web_accessible_resources: [],
+    web_accessible_resources: [
+      {
+        resources: ['assets/*'],
+        matches: ['<all_urls>'],
+      },
+    ],
   } satisfies Omit<Manifest.WebExtensionManifest, MV2Keys> & ChromeManifestExtra
 
   return manifest
