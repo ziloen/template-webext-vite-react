@@ -87,20 +87,21 @@ export default defineConfig(({ command, mode }) => {
 
       react(),
 
-      crx({
-        manifest,
-        browser: 'chrome',
-      }),
-
       // https://github.com/Jevon617/unplugin-svg-component
       SvgComponent({
         iconDir: r('src/assets/svg-icons'),
         dts: true,
         // FIXME: when set to `src/types`, it will ifinity reload page when multi page open, maybe conflict with @crxjs/vite-plugin
-        dtsDir: isBuild ? r('src/types') : r(''),
+        dtsDir: r(''),
         componentStyle: 'width: 1em; height: 1em;',
         projectType: 'react',
         preserveColor: /./,
+      }),
+
+      crx({
+        manifest,
+        browser: 'chrome',
+        // contentScripts: {}
       }),
     ],
 
@@ -123,6 +124,10 @@ export default defineConfig(({ command, mode }) => {
 
     esbuild: {
       drop: isBuild ? ['console', 'debugger'] : [],
+    },
+
+    optimizeDeps: {
+      include: ['webextension-polyfill'],
     },
   }
 })
