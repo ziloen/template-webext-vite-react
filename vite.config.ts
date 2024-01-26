@@ -7,7 +7,7 @@ import tailwind from 'tailwindcss'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import AutoImport from 'unplugin-auto-import/vite'
 import SvgComponent from 'unplugin-svg-component/vite'
-import type { Plugin } from 'vite'
+import type { Plugin, Rollup } from 'vite'
 import { defineConfig } from 'vite'
 import { manifest } from './src/manifest'
 import tailwindConfig from './tailwind.config'
@@ -103,6 +103,33 @@ export default defineConfig(({ command, mode }) => {
         browser: 'chrome',
         // contentScripts: {}
       }),
+
+      {
+        name: 'Style-Import',
+        enforce: 'post',
+        generateBundle(options, bundle, isWrite) {
+          const bundleValues = Object.values(bundle)
+          const styleFile = bundleValues.find(
+            v => v.name?.endsWith('.css') && 'source' in v
+          )
+          if (!styleFile) {
+            throw new Error('style file not found')
+          }
+
+          const fileName = styleFile.fileName
+
+          const injectTarget = bundleValues.filter(
+            v => 'isEntry' in v && !!v.isEntry && !!v.code
+          ) as Rollup.OutputChunk[]
+
+          for (const entry of injectTarget) {
+            entry.code = entry.code.replaceAll(
+              'STYLE_OUTPUT',
+              JSON.stringify(fileName)
+            )
+          }
+        },
+      },
     ],
 
     publicDir: 'public',
@@ -110,7 +137,9 @@ export default defineConfig(({ command, mode }) => {
     build: {
       minify: isBuild ? 'esbuild' : false,
 
-      reportCompressedSize: true,
+      cssCodeSplit: false,
+
+      reportCompressedSize: false,
       // disable inlining assets
       assetsInlineLimit: 0,
 

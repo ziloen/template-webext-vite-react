@@ -1,3 +1,4 @@
+import '~/styles'
 import '~/utils/polyfill'
 
 import { createRoot } from 'react-dom/client'
@@ -13,6 +14,10 @@ shadow.adoptedStyleSheets = [styleSheet]
 
 createRoot(shadow).render(<App />)
 
-import('~/styles/tailwind.css?inline').then(m => {
-  styleSheet.replaceSync(m.default)
-})
+const fileName = typeof STYLE_OUTPUT === 'undefined' ? '' : STYLE_OUTPUT
+
+fetch(browser.runtime.getURL(fileName))
+  .then(r => r.text())
+  .then(m => {
+    styleSheet.replaceSync(m)
+  })
