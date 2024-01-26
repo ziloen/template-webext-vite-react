@@ -9,7 +9,7 @@ const shadow = div.attachShadow({ mode: 'closed' })
 const styleSheet = new CSSStyleSheet()
 shadow.adoptedStyleSheets = [styleSheet]
 
-document.body.append(div)
+// document.body.append(div)
 
 createRoot(shadow).render(<App />)
 
