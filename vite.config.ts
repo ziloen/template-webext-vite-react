@@ -137,8 +137,9 @@ export default defineConfig(({ command, mode }) => {
     build: {
       minify: isBuild ? 'esbuild' : false,
 
+      sourcemap: isBuild ? false : 'inline',
+      // disable CSS code splitting
       cssCodeSplit: false,
-
       reportCompressedSize: false,
       // disable inlining assets
       assetsInlineLimit: 0,

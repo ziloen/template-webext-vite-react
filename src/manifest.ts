@@ -18,7 +18,7 @@ export function manifest() {
     manifest_version: 3,
     name: 'My Extension',
     version: '0.0.1',
-    permissions: ['sidePanel'] as Permissions[],
+    permissions: ['sidePanel', 'tabs'] as Permissions[],
     optional_permissions: [] as OptionalPermissions[],
     action: {
       default_popup: 'src/pages/popup/index.html',
