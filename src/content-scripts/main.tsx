@@ -12,7 +12,7 @@ const styleSheet = new CSSStyleSheet()
 shadow.adoptedStyleSheets = [styleSheet]
 
 sendMessage('get-sender').then(sender => {
-  globalThis.console.log(sender)
+  globalThis.console.log({ sender })
 })
 
 // document.body.append(div)

@@ -1,6 +1,6 @@
-import 'typed-webext/background'
+import { backgroundForwardMessage, onMessage } from 'typed-webext/message'
 
-import { onMessage } from 'typed-webext/message'
+backgroundForwardMessage()
 
 browser.runtime.onInstalled.addListener(details => {})
 
