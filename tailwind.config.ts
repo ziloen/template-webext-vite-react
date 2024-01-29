@@ -11,7 +11,6 @@ export default {
       transparent: 'transparent',
       black: '#000',
       white: '#fff',
-
     },
 
     lineHeight: {
@@ -40,7 +39,7 @@ export default {
   plugins: [
     function ({ addUtilities, matchUtilities }: PluginAPI) {
       addUtilities({
-        // Flex utilities
+        // Flex
         '.flex-center': {
           display: 'flex',
           'justify-content': 'center',
@@ -54,12 +53,16 @@ export default {
           display: 'flex',
           'align-items': 'center',
         },
+        '.flex-between': {
+          display: 'flex',
+          'justify-content': 'space-between',
+        },
         '.flex-column': {
           display: 'flex',
           'flex-direction': 'column',
         },
 
-        // Scrollbar utilities
+        // Scrollbar
         '.scrollbar-none': {
           'scrollbar-width': 'none',
           '&::-webkit-scrollbar': {
@@ -68,6 +71,17 @@ export default {
         },
         '.scrollbar-thin': {
           'scrollbar-width': 'thin',
+        },
+
+        // Leading trim simulate
+        '.leading-trim-both': {
+          'margin-block': 'calc((1lh - 1em) / -2)',
+        },
+        '.leading-trim-start': {
+          'margin-block-start': 'calc((1lh - 1em) / -2)',
+        },
+        '.leading-trim-end': {
+          'margin-block-end': 'calc((1lh - 1em) / -2)',
         },
       })
 
