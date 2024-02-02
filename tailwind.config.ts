@@ -74,14 +74,17 @@ export default {
         },
 
         // Leading trim simulate
+        // text-box-trim: both;
+        // https://caniuse.com/css-text-box-trim
+        // (1lh - 1em) / 2 * -1
         '.leading-trim-both': {
-          'margin-block': 'calc((1lh - 1em) / -2)',
+          'margin-block': 'calc(0.5em - 0.5lh)',
         },
         '.leading-trim-start': {
-          'margin-block-start': 'calc((1lh - 1em) / -2)',
+          'margin-block-start': 'calc(0.5em - 0.5lh)',
         },
         '.leading-trim-end': {
-          'margin-block-end': 'calc((1lh - 1em) / -2)',
+          'margin-block-end': 'calc(0.5em - 0.5lh)',
         },
       })
 
