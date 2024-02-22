@@ -86,6 +86,17 @@ export default {
         '.leading-trim-end': {
           'margin-block-end': 'calc(0.5em - 0.5lh)',
         },
+
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content#safe
+        '.justify-safe-center': {
+          'justify-content': 'safe center',
+        },
+        '.justify-safe-start': {
+          'justify-content': 'safe start',
+        },
+        '.justify-safe-end': {
+          'justify-content': 'safe end',
+        },
       })
 
       matchUtilities(

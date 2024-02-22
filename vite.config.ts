@@ -7,7 +7,7 @@ import tailwind from 'tailwindcss'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import AutoImport from 'unplugin-auto-import/vite'
 import SvgComponent from 'unplugin-svg-component/vite'
-import type { Plugin, Rollup } from 'vite'
+import type { Plugin, Rollup, UserConfig } from 'vite'
 import { defineConfig } from 'vite'
 import { manifest } from './src/manifest'
 import tailwindConfig from './tailwind.config'
@@ -80,9 +80,10 @@ export default defineConfig(({ command, mode }) => {
             'framer-motion': ['AnimatePresence', 'motion'],
             clsx: ['clsx'],
             'clsx/lite': [['clsx', 'clsxLite']],
-            'webextension-polyfill': [['*', 'browser']],
+            'webextension-polyfill': [['default', 'browser']],
           },
         ],
+        ignoreDts: ['browser'],
       }) as Plugin,
 
       react(),
@@ -159,5 +160,5 @@ export default defineConfig(({ command, mode }) => {
     optimizeDeps: {
       include: ['webextension-polyfill'],
     },
-  }
+  } as UserConfig
 })
