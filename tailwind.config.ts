@@ -1,10 +1,8 @@
-import { preset } from '@ziloen/tailwind-config'
-import type { Config } from 'tailwindcss'
+import type { PresetTheme } from '@ziloen/tailwind-config'
+import { defineConfig, preset } from '@ziloen/tailwind-config'
 
-export default {
+export default defineConfig({
   content: ['./src/**/*.{ts,tsx,html}'],
   presets: [preset],
-  theme: {
-    extend: {},
-  },
-} satisfies Config
+  theme: {} as PresetTheme,
+})
