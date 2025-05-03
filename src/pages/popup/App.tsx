@@ -5,11 +5,11 @@ import SvgIcon from '~virtual/svg-component'
 
 export function App() {
   return (
-    <div className="flex-column w-max items-center whitespace-nowrap p-[12px]">
+    <div className="flex w-max flex-col items-center p-[12px] whitespace-nowrap">
       <div className="">Popup Page</div>
 
       <div
-        className="w-max cursor-pointer gap-[4px] flex-align"
+        className="flex w-max cursor-pointer items-center gap-[4px]"
         onClick={async () => {
           await browser.runtime.openOptionsPage()
           window.close()
@@ -20,7 +20,7 @@ export function App() {
       </div>
 
       <div
-        className="w-max cursor-pointer gap-[4px] flex-align"
+        className="flex w-max cursor-pointer items-center gap-[4px]"
         onClick={async () => {
           await openSidePanel()
           window.close()
