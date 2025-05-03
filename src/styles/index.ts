@@ -6,4 +6,3 @@ import '@fontsource-variable/open-sans'
 import '@fontsource-variable/fira-code'
 //
 import './font.css'
-

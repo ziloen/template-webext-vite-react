@@ -1,8 +1,6 @@
-import { backgroundForwardMessage, onMessage } from 'typed-webext/message'
+import { onMessage } from 'typed-webext'
 
-backgroundForwardMessage()
-
-browser.runtime.onInstalled.addListener(details => {})
+browser.runtime.onInstalled.addListener((details) => {})
 
 onMessage('get-sender', ({ sender, data }) => {
   return sender

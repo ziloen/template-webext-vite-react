@@ -1,20 +1,14 @@
 import { crx } from '@crxjs/vite-plugin'
+import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
+import { Features } from 'lightningcss'
 import { resolve as r } from 'node:path'
 import { cwd } from 'node:process'
-import PostcssPresetEnv from 'postcss-preset-env'
-import tailwind from 'tailwindcss'
-import resolveConfig from 'tailwindcss/resolveConfig'
 import AutoImport from 'unplugin-auto-import/vite'
 import SvgComponent from 'unplugin-svg-component/vite'
 import type { Plugin, Rollup, UserConfig } from 'vite'
 import { defineConfig } from 'vite'
 import { manifest } from './src/manifest'
-import tailwindConfig from './tailwind.config'
-
-const twConfig = resolveConfig(tailwindConfig)
-
-export type TW_THEME = typeof twConfig.theme
 
 export default defineConfig(({ command, mode }) => {
   const isBuild = command === 'build'
@@ -38,22 +32,16 @@ export default defineConfig(({ command, mode }) => {
       },
     },
 
-    define: {
-      TAILWIND_THEME: JSON.stringify(twConfig.theme),
-    },
-
     css: {
-      postcss: {
-        plugins: [
-          PostcssPresetEnv({
-            stage: false,
-            features: {
-              'nesting-rules': true,
-              'media-query-ranges': true,
-            },
-          }),
-          tailwind(twConfig),
-        ],
+      transformer: 'lightningcss',
+      lightningcss: {
+        // https://lightningcss.dev/transpilation.html#feature-flags
+        include: Features.Colors | Features.Nesting | Features.MediaRangeSyntax,
+        exclude: Features.LogicalProperties,
+      },
+      devSourcemap: true,
+      modules: {
+        generateScopedName: '[hash:base64:8]',
       },
     },
 
@@ -77,7 +65,7 @@ export default defineConfig(({ command, mode }) => {
               'useState',
             ],
             'react-dom': ['createPortal'],
-            'framer-motion': ['AnimatePresence', 'motion'],
+            'motion/react': ['motion', 'AnimatePresence'],
             clsx: ['clsx'],
             'clsx/lite': [['clsx', 'clsxLite']],
             'webextension-polyfill': [['default', 'browser']],
@@ -99,6 +87,8 @@ export default defineConfig(({ command, mode }) => {
         preserveColor: /./,
       }),
 
+      tailwindcss(),
+
       crx({
         manifest,
         browser: 'chrome',
@@ -111,7 +101,7 @@ export default defineConfig(({ command, mode }) => {
         generateBundle(options, bundle, isWrite) {
           const bundleValues = Object.values(bundle)
           const styleFile = bundleValues.find(
-            v => v.name?.endsWith('.css') && 'source' in v
+            (v) => v.name?.endsWith('.css') && 'source' in v,
           )
           if (!styleFile) {
             throw new Error('style file not found')
@@ -120,13 +110,13 @@ export default defineConfig(({ command, mode }) => {
           const fileName = styleFile.fileName
 
           const injectTarget = bundleValues.filter(
-            v => 'isEntry' in v && !!v.isEntry && !!v.code
+            (v) => 'isEntry' in v && !!v.isEntry && !!v.code,
           ) as Rollup.OutputChunk[]
 
           for (const entry of injectTarget) {
             entry.code = entry.code.replaceAll(
               'STYLE_OUTPUT',
-              JSON.stringify(fileName)
+              JSON.stringify(fileName),
             )
           }
         },

@@ -8,5 +8,4 @@ declare module 'webextension-polyfill' {
   }
 }
 
-export { }
-
+export {}

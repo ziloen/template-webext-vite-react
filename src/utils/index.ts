@@ -13,7 +13,7 @@ export async function openSidePanel() {
 
 export function listenEvent<T extends Events.Event<(...args: any[]) => any>>(
   target: T,
-  callback: T extends Events.Event<infer U> ? U : never
+  callback: T extends Events.Event<infer U> ? U : never,
 ) {
   target.addListener(callback)
   return () => target.removeListener(callback)

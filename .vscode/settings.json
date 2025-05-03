@@ -1,20 +1,19 @@
 {
   "[javascript]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "css.customData": [
     ".vscode/css-data.json"
   ],
   "editor.codeActionsOnSave": [
-    "source.sortImports",
+    "source.sortImports"
   ],
-  "eslint.experimental.useFlatConfig": true,
   "eslint.format.enable": false,
-  "prettier.enable": false
+  "tailwindCSS.experimental.configFile": "src/styles/tailwind.css"
 }

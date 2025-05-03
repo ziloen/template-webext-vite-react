@@ -10,5 +10,4 @@ declare module 'typed-webext' {
   interface StorageLocalProtocol {}
 }
 
-export { }
-
+export {}
