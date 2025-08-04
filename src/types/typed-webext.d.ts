@@ -2,7 +2,7 @@ import type { Extension, Runtime, Tabs } from 'webextension-polyfill'
 
 declare module 'typed-webext' {
   interface MessageProtocol {
-    'get-sender': [never, Runtime.MessageSender]
+    get_sender: [never, Runtime.MessageSender]
   }
 
   interface StreamProtocol {}
@@ -10,4 +10,5 @@ declare module 'typed-webext' {
   interface StorageLocalProtocol {}
 }
 
-export {}
+export { }
+

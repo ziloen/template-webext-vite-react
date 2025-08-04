@@ -11,7 +11,7 @@ const shadow = div.attachShadow({ mode: 'closed' })
 const styleSheet = new CSSStyleSheet()
 shadow.adoptedStyleSheets = [styleSheet]
 
-sendMessage('get-sender').then((sender) => {
+sendMessage.get_sender().then((sender) => {
   globalThis.console.log({ sender })
 })
 
